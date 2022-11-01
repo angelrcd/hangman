@@ -63,11 +63,32 @@ function checkLose() {
   }
 }
 
+function checkWin() {
+  let resultado = true;
+  letterBoxes.forEach(box => {
+    if (box.textContent === "") {
+      resultado = false;
+    };
+  });
+  return resultado;
+}
+
+function setWinMessage() {
+  endMessage.classList.add("text-green-500");
+  endMessage.textContent = "HAS GANADO";
+  letterButtons.forEach(button => {
+    button.disabled = true;
+  });
+}
+
 letterButtons.forEach(box => {
   box.addEventListener("click", () => {
     fillLetterButton(box);
     applyGuess(box.textContent, getPositionsOfGuess(box.textContent));
     checkLose();
+    if (checkWin()) {
+      setWinMessage();
+    }
   });
 });
 
