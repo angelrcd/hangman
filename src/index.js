@@ -1,9 +1,11 @@
+import { getWord } from "./modules/wordList.js";
+
 const livesBoxes = document.querySelectorAll(".lives");
 const letterBoxes = document.querySelectorAll(".letters");
 const letterButtons = document.querySelectorAll(".letter-button");
 const resetButton = document.querySelector("#reload");
 const endMessage = document.querySelector("#endMessage");
-const wordToGuess = "ALADOS";
+let wordToGuess = getWord();
 
 let lostLives = 0;
 
@@ -13,6 +15,7 @@ function fillLifeBox() {
 }
 
 function reset() {
+  wordToGuess = getWord();
   lostLives = 0;
   endMessage.textContent = "";
   livesBoxes.forEach(box => {
@@ -53,6 +56,13 @@ function applyGuess(letter, guessPositions) {
   });
 }
 
+function fillWord() {
+  const array = wordToGuess.split("");
+  for (let i = 0; i < array.length; i++) {
+    letterBoxes[i].textContent = array[i];
+  }
+}
+
 function checkLose() {
   if (lostLives === 6) {
     letterButtons.forEach(button => {
@@ -60,6 +70,7 @@ function checkLose() {
     });
     endMessage.classList.add("text-red-500");
     endMessage.textContent = "HAS PERDIDO";
+    fillWord();
   }
 }
 
@@ -85,10 +96,10 @@ letterButtons.forEach(box => {
   box.addEventListener("click", () => {
     fillLetterButton(box);
     applyGuess(box.textContent, getPositionsOfGuess(box.textContent));
-    checkLose();
     if (checkWin()) {
       setWinMessage();
     }
+    checkLose();
   });
 });
 
