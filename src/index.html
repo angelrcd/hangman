@@ -12,7 +12,11 @@
 
 <body class="h-screen bg-gray-200">
   <div class="flex flex-col items-center justify-between h-full">
-    <h1 class="mt-10 text-4xl">HANGMAN</h1>
+    <div class="flex w-full justify-between">
+      <div class="w-14 h-14"></div>
+      <h1 class="mt-10 text-4xl">HANGMAN</h1>
+      <button id="reload" class="w-14 h-14 m-5"><img src="/reload-svgrepo-com.svg" alt=""></button>
+    </div>
     <div class="w-fit flex gap-1">
       <div class="lives"></div>
       <div class="lives"></div>
@@ -21,42 +25,47 @@
       <div class="lives"></div>
       <div class="lives"></div>
     </div>
-    <div class="w-fit flex gap-1 mb-10">
-      <div class="letters text-center text-2xl"><span class="invisible">A</span></div>
-      <div class="letters text-center text-2xl"><span class="invisible">A</span></div>
-      <div class="letters text-center text-2xl"><span class="invisible">A</span></div>
-      <div class="letters text-center text-2xl"><span class="invisible">A</span></div>
-      <div class="letters text-center text-2xl"><span class="invisible">A</span></div>
-      <div class="letters text-center text-2xl"><span class="invisible">A</span></div>
+
+    <div>
+      <div class="w-fit flex gap-1 mb-10">
+        <div class="letters text-center text-2xl"><span class="invisible"></span></div>
+        <div class="letters text-center text-2xl"><span class="invisible"></span></div>
+        <div class="letters text-center text-2xl"><span class="invisible"></span></div>
+        <div class="letters text-center text-2xl"><span class="invisible"></span></div>
+        <div class="letters text-center text-2xl"><span class="invisible"></span></div>
+        <div class="letters text-center text-2xl"><span class="invisible"></span></div>
+      </div>
+      <p id="endMessage" class="text-4xl text-center"></p>
     </div>
+
     <div class="flex flex-wrap gap-2 mb-5 mx-5">
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">A</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">B</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">C</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">D</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">E</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">F</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">G</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">H</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">I</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">J</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">K</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">L</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">M</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">N</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">Ñ</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">O</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">P</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">Q</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">R</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">S</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">T</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">U</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">V</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">W</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">X</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">Y</div>
-      <div class="letter-button text-center text-2xl cursor-pointer hover:bg-cyan-50">Z</div>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">A</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">B</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">C</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">D</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">E</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">F</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">G</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">H</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">I</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">J</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">K</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">L</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">M</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">N</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">Ñ</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">O</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">P</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">Q</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">R</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">S</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">T</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">U</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">V</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">W</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">X</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">Y</button>
+      <button class="letter-button text-center text-2xl hover:bg-cyan-50">Z</button>
     </div>
   </div>
 </body>
