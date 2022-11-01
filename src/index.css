@@ -12,4 +12,8 @@
   .letters {
     @apply w-10 h-10 border-b-2 border-black;
   }
+
+  .letter-button {
+    @apply w-10 h-10 border-2 border-black;
+  }
 }
