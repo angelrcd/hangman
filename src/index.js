@@ -18,6 +18,8 @@ function reset() {
   wordToGuess = getWord();
   lostLives = 0;
   endMessage.textContent = "";
+  endMessage.classList.remove("text-red-500");
+  endMessage.classList.remove("text-green-500");
   livesBoxes.forEach(box => {
     box.classList.remove("bg-red-600");
   });
@@ -94,6 +96,7 @@ function setWinMessage() {
 
 letterButtons.forEach(box => {
   box.addEventListener("click", () => {
+    box.disabled = true;
     fillLetterButton(box);
     applyGuess(box.textContent, getPositionsOfGuess(box.textContent));
     if (checkWin()) {
